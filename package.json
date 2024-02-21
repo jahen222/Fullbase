@@ -1,0 +1,41 @@
+{
+  "name": "fullbase",
+  "private": true,
+  "scripts": {
+    "lint": "turbo lint",
+    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+    "build": "turbo build",
+    "dev": "turbo dev",
+    "backend:build": "turbo build --filter=backend",
+    "backend:dev": "turbo dev --filter=backend",
+    "backend:start": "cd apps/backend && yarn start",
+    "start": "cd apps/backend && node ./node_modules/.bin/strapi start",
+    "frontend:build": "turbo build --filter=frontend",
+    "frontend:dev": "turbo dev --filter=frontend",
+    "frontend:start": "cd apps/frontend && yarn start",
+    "app:build": "cd apps/app && yarn build",
+    "app:apk": "cd apps/app && eas build -p android --profile preview",
+    "app:android": "cd apps/app && yarn android",
+    "app:web": "cd apps/app && yarn web",
+    "app:start": "cd apps/app && yarn start",
+    "app-business:build": "cd apps/app-business && yarn build",
+    "app-business:apk": "cd apps/app-business && eas build -p android --profile preview",
+    "app-business:android": "cd apps/app-business && yarn android",
+    "app-business:web": "cd apps/app-business && yarn web",
+    "app-business:start": "cd apps/app-business && yarn start"
+  },
+  "devDependencies": {
+    "@repo/eslint-config": "*",
+    "@repo/typescript-config": "*",
+    "prettier": "^3.1.1",
+    "turbo": "latest"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "packageManager": "yarn@1.22.21",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ]
+}
